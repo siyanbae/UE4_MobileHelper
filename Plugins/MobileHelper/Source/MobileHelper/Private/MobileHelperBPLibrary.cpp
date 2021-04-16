@@ -9,7 +9,11 @@ UMobileHelperBPLibrary::UMobileHelperBPLibrary(const FObjectInitializer& ObjectI
 
 }
 
-void UMobileHelperBPLibrary::ShowTestMessage()
+void UMobileHelperBPLibrary::ShowToastMessage(const FString Msg)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Test"));
+#if PLATFORM_ANDROID
+	FMobileHelperModule::Get().GetPlatform()->ShowToast(Msg);
+#else
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, Msg);
+#endif
 }

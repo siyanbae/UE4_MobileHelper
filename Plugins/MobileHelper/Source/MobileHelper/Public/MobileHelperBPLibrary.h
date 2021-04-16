@@ -29,5 +29,5 @@ class UMobileHelperBPLibrary : public UBlueprintFunctionLibrary
 
 public:
 	UFUNCTION(BlueprintCallable, Category = "Mobile Helper")
-	static void ShowTestMessage();
+	static void ShowToastMessage(const FString Msg);
 };

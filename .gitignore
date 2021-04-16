@@ -10,3 +10,9 @@
 *.db
 Plugins/MobileHelper/Binaries/
 Plugins/MobileHelper/Intermediate/
+.vs/
+Binaries/
+Build/
+Intermediate/
+Saved/
+MobileSample.sln

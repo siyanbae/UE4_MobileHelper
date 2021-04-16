@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+  <gameActivityImportAdditions>
+	<insert>
+    import android.widget.Toast;
+  </insert>
+  </gameActivityImportAdditions>
+
+  <androidManifestUpdates>
+  <!--  -->
+  </androidManifestUpdates>
+
+  <gameActivityClassAdditions>
+	<insert>
+    public void showToast(final String msg)
+    {
+      runOnUiThread(new Runnable() {
+        public void run() {
+          Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();
+        }
+      });
+    }
+  </insert>
+  </gameActivityClassAdditions>
+</root>

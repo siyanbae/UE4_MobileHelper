@@ -1,26 +1,13 @@
 // Some copyright should be here...
 
 using UnrealBuildTool;
+using System.IO;
 
 public class MobileHelper : ModuleRules
 {
 	public MobileHelper(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
-		
-		PublicIncludePaths.AddRange(
-			new string[] {
-				// ... add public include paths required here ...
-			}
-			);
-				
-		
-		PrivateIncludePaths.AddRange(
-			new string[] {
-				// ... add other private include paths required here ...
-			}
-			);
-			
 		
 		PublicDependencyModuleNames.AddRange(
 			new string[]
@@ -36,18 +23,24 @@ public class MobileHelper : ModuleRules
 			{
 				"CoreUObject",
 				"Engine",
-				"Slate",
-				"SlateCore",
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);
-		
-		
-		DynamicallyLoadedModuleNames.AddRange(
-			new string[]
-			{
-				// ... add any modules that your module loads dynamically here ...
-			}
-			);
-	}
+
+        if (Target.Platform == UnrealTargetPlatform.Android)
+        {
+            PrivateIncludePaths.Add("MobileHelper/Private/Android");
+        }
+        //else if (Target.Platform == UnrealTargetPlatform.IOS)
+        //{
+        //    PrivateIncludePaths.Add("MobileHelper/Private/IOS");
+        //}
+
+        if (Target.Platform == UnrealTargetPlatform.Android)
+        {
+            PrivateDependencyModuleNames.AddRange(new string[] { "Launch" });
+            string PluginPath = Utils.MakePathRelativeTo(ModuleDirectory, Target.RelativeEnginePath);
+            AdditionalPropertiesForReceipt.Add("AndroidPlugin", Path.Combine(PluginPath, "MobileHelper_UPL_Android.xml"));
+        }
+    }
 }
