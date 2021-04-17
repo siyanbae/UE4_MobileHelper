@@ -9,7 +9,7 @@ UMobileHelperBPLibrary::UMobileHelperBPLibrary(const FObjectInitializer& ObjectI
 
 }
 
-void UMobileHelperBPLibrary::ShowToastMessage(const FString Msg)
+void UMobileHelperBPLibrary::ShowToastMessage(const FString& Msg)
 {
 #if PLATFORM_ANDROID
 	FMobileHelperModule::Get().GetPlatform()->ShowToast(Msg);

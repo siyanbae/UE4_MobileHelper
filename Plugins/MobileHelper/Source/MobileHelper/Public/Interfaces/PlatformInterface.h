@@ -8,5 +8,5 @@
 class IPlatformInterface
 {
 public:
-	virtual void ShowToast(const FString Msg) = 0;
+	virtual void ShowToast(const FString& Msg) = 0;
 };

@@ -7,7 +7,7 @@
 void FMobileHelperModule::StartupModule()
 {
 #if PLATFORM_ANDROID
-	PlatformPtr = MakeShareable(new PlatformAndroid());
+	PlatformPtr = MakeShareable(new AndroidHelper());
 #endif
 }
 
