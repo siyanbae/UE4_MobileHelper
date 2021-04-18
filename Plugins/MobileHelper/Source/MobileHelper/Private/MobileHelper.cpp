@@ -1,6 +1,9 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "MobileHelper.h"
+#if PLATFORM_ANDROID
+#include "AndroidHelper.h"
+#endif
 
 #define LOCTEXT_NAMESPACE "FMobileHelperModule"
 

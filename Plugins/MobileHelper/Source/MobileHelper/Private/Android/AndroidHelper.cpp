@@ -1,22 +1,22 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "PlatformAndroid.h"
+#include "AndroidHelper.h"
 
 #if PLATFORM_ANDROID
 #include "Android/AndroidJNI.h"
 #include "Android/AndroidApplication.h"
 #endif
 
-PlatformAndroid::PlatformAndroid()
+AndroidHelper::AndroidHelper()
 {
 }
 
-PlatformAndroid::~PlatformAndroid()
+AndroidHelper::~AndroidHelper()
 {
 }
 
-void PlatformAndroid::ShowToast(const FString& Msg)
+void AndroidHelper::ShowToast(const FString& Msg)
 {
 #if PLATFORM_ANDROID
 	JNIEnv* env = FAndroidApplication::GetJavaEnv();
